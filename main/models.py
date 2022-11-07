@@ -3,7 +3,7 @@ from django.db import models
 class Brand_s(models.Model):
     name = models.CharField(max_length = 128)
     description = models.TextField(null=True, blank=True)
-    image = models.ImageField(upload_to='products_images')
+    image = models.TextField()
 
     class Meta:
         verbose_name = 'Brand'
@@ -13,8 +13,8 @@ class Brand_s(models.Model):
 class Product_s(models.Model):
     name = models.CharField(max_length = 256)
     description = models.TextField(null=True, blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(upload_to='products_images')
+    price = models.DecimalField(max_digits=12, decimal_places=2)
+    image = models.TextField()
     category = models.ForeignKey(Brand_s, on_delete=models.CASCADE)
 
     class Meta:
