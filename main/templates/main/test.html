@@ -56,147 +56,25 @@
       </div></header>
     <section class="u-align-center u-clearfix u-section-1" id="sec-5aec">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <img class="u-image u-image-contain u-image-default u-image-1" src="../../static/main/img/image14.png" alt="" data-image-width="6168" data-image-height="1477"><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
+        <img class="u-image u-image-contain u-image-default u-image-1" src="{{ article.image }}" alt="" data-image-width="6168" data-image-height="1477"><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
         <div class="u-expanded-width u-products u-products-1">
-          <div class="u-repeater u-repeater-1"><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-2" src="../../static/main/img/image22.png" data-image-width="458" data-image-height="458"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-1">
-                  <div class="u-container-layout u-container-layout-2">
-                    <h4 class="u-text u-text-1"> {{ article.name }}</h4>
-                    <p class="u-text u-text-2"> 7 500&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item" data-href="{% url 'item' %}" title="item" rel="nofollow">
+          <div class="u-repeater u-repeater-1"><!--product_item-->            
+           {% for tab in taburetka %}
+            <div class="u-align-center u-container-style u-products-item u-repeater-item" data-href="{% url 'tovar' tab.id %}" title="item" rel="nofollow">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-3" src="../../static/main/img/image23.png" data-image-width="458" data-image-height="458"><!--/product_image-->
+                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-3" src="{{ tab.image }}" data-image-width="458" data-image-height="458"><!--/product_image-->
                 <div class="u-align-center u-container-style u-group u-white u-group-2">
                   <div class="u-container-layout u-container-layout-4">
-                    <h4 class="u-text u-text-3">{{ article.name }}</h4>
-                    <p class="u-text u-text-4"> 15 000&nbsp;₽</p>
+                    <h4 class="u-text u-text-3">{{ tab.name }}</h4>
+                    <p class="u-text u-text-4"> {{ tab.price }}&nbsp;₽</p>
                   </div>
                 </div>
               </div>
             </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-4" src="../../static/main/img/image24.png" data-image-width="458" data-image-height="458"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-3">
-                  <div class="u-container-layout u-container-layout-6">
-                    <h4 class="u-text u-text-5"> PUFFER JACKET V1</h4>
-                    <p class="u-text u-text-6"> 9 000&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-7"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-5" src="../../static/main/img/image25.png" data-image-width="458" data-image-height="458"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-4">
-                  <div class="u-container-layout u-container-layout-8">
-                    <h4 class="u-text u-text-7"> SCREW SHIRT</h4>
-                    <p class="u-text u-text-8"> 4 000&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-9"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-6" src="../../static/main/img/image26.png" data-image-width="458" data-image-height="458"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-5">
-                  <div class="u-container-layout u-container-layout-10">
-                    <h4 class="u-text u-text-9"> LOGO SWEATPANTS</h4>
-                    <p class="u-text u-text-10"> 5 000&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-11"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-7" src="../../static/main/img/image9.png" data-image-width="1280" data-image-height="1262"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-6">
-                  <div class="u-container-layout u-container-layout-12">
-                    <h4 class="u-text u-text-11"> MM HATER HOODIE</h4>
-                    <p class="u-text u-text-12"> 5 500&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item-->
+          {% endfor %}
+            
           </div>
         </div><!--/products--><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
-        <div class="u-expanded-width u-products u-products-2">
-          <div class="u-repeater u-repeater-2"><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-13"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-8" src="../../static/main/img/image28.png" data-image-width="458" data-image-height="458"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-7">
-                  <div class="u-container-layout u-container-layout-14">
-                    <h4 class="u-text u-text-13"> LOGO SHORTS</h4>
-                    <p class="u-text u-text-14"> 3 500&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-15"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-9" src="../../static/main/img/FF3A39B4-3BDB-4054-B40F-E7FC5B3D3378.jpeg" data-image-width="1500" data-image-height="1500"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-8">
-                  <div class="u-container-layout u-container-layout-16">
-                    <h4 class="u-text u-text-15"> CRYSTAL ZIP-HOODIE</h4>
-                    <p class="u-text u-text-16"> 5 900&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-17"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-10" src="../../static/main/img/_________________.jpg" data-image-width="1500" data-image-height="1500"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-9">
-                  <div class="u-container-layout u-container-layout-18">
-                    <h4 class="u-text u-text-17"> BABY RARI #1 HOODIE</h4>
-                    <p class="u-text u-text-18"> 5 500&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-19"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-11" src="../../static/main/img/7.jpg" data-image-width="1500" data-image-height="1500"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-10">
-                  <div class="u-container-layout u-container-layout-20">
-                    <h4 class="u-text u-text-19"> YUMMS RARI TEE #2</h4>
-                    <p class="u-text u-text-20"> 2 200&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-21"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-12" src="../../static/main/img/16_2.jpg" data-image-width="1500" data-image-height="1500"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-11">
-                  <div class="u-container-layout u-container-layout-22">
-                    <h4 class="u-text u-text-21"> PUZZLE L/S TEE</h4>
-                    <p class="u-text u-text-22"> 3 000&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-23"><!--product_image-->
-                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-13" src="../../static/main/img/2__1_.jpg" data-image-width="1500" data-image-height="1500"><!--/product_image-->
-                <div class="u-align-center u-container-style u-group u-white u-group-12">
-                  <div class="u-container-layout u-container-layout-24">
-                    <h4 class="u-text u-text-23"> LOLLIPOP TEE</h4>
-                    <p class="u-text u-text-24"> 2 200&nbsp;₽</p>
-                  </div>
-                </div>
-              </div>
-            </div><!--/product_item-->
-          </div>
-        </div><!--/products-->
       </div>
       
       

@@ -60,13 +60,12 @@
         <div class="u-expanded-width u-list u-list-1">
           <div class="u-repeater u-repeater-1">
             {% for el in news %}
-            <div class="u-container-style u-list-item u-repeater-item" data-href="{% url 'test' el.id %}" title="brand" rel="nofollow">
+            <div class="u-container-style u-list-item u-repeater-item" data-href="{% url 'brand' el.id %}" title="brand" rel="nofollow">
               <div class="u-container-layout u-similar-container u-container-layout-3">
                 <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="640" data-image-height="640" src="{{el.image}}">
                 <h3 class="u-text u-text-default u-text-1">{{el.name}}</h3>
                 <p class="u-text u-text-2"> {{el.description}}
                 </p>
-                
               </div>
             </div>
             {% endfor %}
