@@ -6,7 +6,8 @@ class Brand_s(models.Model):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length = 128, db_index=True)
     description = models.TextField(null=True, blank=True)
-    image = models.TextField()
+    image = models.TextField(null=True)
+    image2 = models.TextField(null=True)
 
     def get_absolute_url(self):
         return reverse ('brand', kwargs={'brand_id':self.pk})
@@ -19,8 +20,9 @@ class Brand_s(models.Model):
 class Product_s(models.Model):
     name = models.CharField(max_length = 256)
     description = models.TextField(null=True, blank=True)
-    price = models.DecimalField(max_digits=12, decimal_places=2)
-    image = models.TextField()
+    price = models.DecimalField(max_digits=12, decimal_places=0)
+    image = models.TextField(null=True)
+    image2 = models.TextField(null=True)
     category = models.ForeignKey(Brand_s, on_delete=models.CASCADE, null = True)
 
     def get_absolute_url(self):

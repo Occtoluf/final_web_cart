@@ -56,14 +56,14 @@
       </div></header>
     <section class="u-clearfix u-section-1" id="sec-b452">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <img class="u-image u-image-contain u-image-default u-image-1" src="../../static/main/img/image14.png" alt="" data-image-width="6168" data-image-height="1477" data-href="{{ br.get_absolute_url }}" title="brand"><!--product--><!--product_options_json--><!--{"source":""}--><!--/product_options_json--><!--product_item-->
+        <img class="u-image u-image-contain u-image-default u-image-1" src="{{br_id.image2}}" alt="" data-image-width="6168" data-image-height="1477" data-href="{{ br_id.get_absolute_url }}" title="brand"><!--product--><!--product_options_json--><!--{"source":""}--><!--/product_options_json--><!--product_item-->
         <div class="u-container-style u-expanded-width u-product u-product-1">
           <div class="u-container-layout u-container-layout-1"><!--product_gallery--><!--options_json--><!--{"maxItems":""}--><!--/options_json-->
             <div class="u-carousel u-gallery u-layout-thumbnails u-lightbox u-no-transition u-product-control u-show-text-none u-thumbnails-position-bottom u-gallery-1" data-interval="5000" data-u-ride="carousel" id="carousel-654c">
               <div class="u-carousel-inner u-gallery-inner" role="listbox"><!--product_gallery_item-->
                 <div class="active u-active u-carousel-item u-gallery-item u-shape-rectangle">
                   <div class="u-back-slide" data-image-width="1500" data-image-height="1500">
-                    <img class="u-back-image u-expanded" src="../../static/main/img/1__3_.jpg">
+                    <img class="u-back-image u-expanded" src="{{it.image}}">
                   </div>
                   <div class="u-over-slide u-over-slide-1">
                     <h3 class="u-gallery-heading">Sample Title</h3>
@@ -72,7 +72,7 @@
                 </div><!--/product_gallery_item--><!--product_gallery_item-->
                 <div class="u-carousel-item u-gallery-item u-shape-rectangle">
                   <div class="u-back-slide" data-image-width="1023" data-image-height="1280">
-                    <img class="u-back-image u-expanded" src="../../static/main/img/photo_2022-10-22_19-44-37.jpg">
+                    <img class="u-back-image u-expanded" src="{{it.image2}}">
                   </div>
                   <div class="u-over-slide u-over-slide-2">
                     <h3 class="u-gallery-heading">Sample Title</h3>
@@ -102,15 +102,15 @@
               </a>
               <ol class="u-carousel-thumbnails u-spacing-25 u-carousel-thumbnails-1"><!--product_gallery_thumbnail-->
                 <li class="u-active u-carousel-thumbnail u-carousel-thumbnail-1" data-u-target="#carousel-654c" data-u-slide-to="0">
-                  <img class="u-carousel-thumbnail-image u-image" src="../../static/main/img/1__3_.jpg">
+                  <img class="u-carousel-thumbnail-image u-image" src="{{it.image}}">
                 </li><!--/product_gallery_thumbnail--><!--product_gallery_thumbnail-->
                 <li class="u-carousel-thumbnail u-carousel-thumbnail-2" data-u-target="#carousel-654c" data-u-slide-to="1">
-                  <img class="u-carousel-thumbnail-image u-image" src="../../static/main/img/photo_2022-10-22_19-44-37.jpg">
+                  <img class="u-carousel-thumbnail-image u-image" src="{{it.image2}}">
                 </li><!--/product_gallery_thumbnail-->
               </ol>
             </div><!--/product_gallery-->
-            <h4 class="u-text u-text-default u-text-1">{{pr.name}}</h4>
-            <h6 class="u-text u-text-default u-text-2"> {{pr.price}}&nbsp;₽ </h6><!--product_variations-->
+            <h4 class="u-text u-text-default u-text-1">{{it.name}}</h4>
+            <h6 class="u-text u-text-default u-text-2"> {{it.price}}&nbsp;₽ </h6><!--product_variations-->
             <div class="u-product-control u-product-variations u-product-variations-1"><!--product_variation-->
               <div class="u-product-variant">
                 <label for="product-variant-select-1" class="u-label"><!--product_variation_label_content-->Size<!--/product_variation_label_content--></label>
@@ -125,8 +125,7 @@
               </div><!--/product_variation-->
             </div><!--/product_variations--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
             <a href="#" class="u-black u-btn u-button-style u-product-control u-btn-1"><!--product_button_content-->Добавить в корзину<!--/product_button_content--></a><!--/product_button-->
-            <p class="u-text u-text-default u-text-3"> Выдержит температуру до -30&nbsp;<br>Отстегивающийся теплый капюшон на молнии<br>Двойные карманы спереди (доступ сбоку и сверху)<br>Внутренний карман<br>Резинки на рукавах<br>Утяжки на поясе<br>Наполнитель: синтепух<br>Размеры: S / M / L / XL / XXL<br>
-              <br>Указания по стирке: желательно стирать в химчистке<br>Указания по размерам:<br>S - рост 160-170см<br>М - рост 170-180см<br>L - рост 180-190см<br>XL - рост 190+см<br>XXL - рост 195+см.
+            <p class="u-text u-text-default u-text-3"> {{it.description}}
             </p>
           </div>
         </div><!--/product_item--><!--/product-->
