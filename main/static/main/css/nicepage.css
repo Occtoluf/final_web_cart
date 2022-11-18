@@ -4,6 +4,8 @@
  * Copyright 2014-2021 Froala Labs
  */
 
+
+
 .fr-clearfix::after {
   clear: both;
   display: block;
@@ -1149,6 +1151,7 @@ a {
 .u-product-desc p,
 .u-product-tab-pane p,
 .u-post-content p {
+  
   text-decoration: inherit !important;
   color: inherit !important;
   font-style: inherit !important;
@@ -2220,6 +2223,7 @@ a {
 .u-form-text .u-text {
   margin-top: 0;
   margin-bottom: 0;
+  margin-left:550px;
 }
 .u-input-row {
   display: flex;
@@ -6148,6 +6152,7 @@ ul.u-text li:last-child {
   padding-left: 0 !important;
 }
 .u-text-default {
+  
   display: table;
   align-self: flex-start;
   width: -webkit-fit-content;
@@ -16734,7 +16739,7 @@ p {
 }
 .u-text {
   word-wrap: break-word;
-  position: relative;
+  position: relative;  
 }
 .u-word-break {
   word-break: break-all;
@@ -38561,6 +38566,7 @@ a.u-link.u-text-hover-grey-90:hover {
         {
         margin-top: 20px;
         margin-bottom: 20px;
+        margin-left: 550px;
         }
         .u-btn
         {

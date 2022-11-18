@@ -31,3 +31,9 @@ def show_product(request, prod_id):
         'br_id': item.category,
     }
     return render(request, 'main/test-product.html', context=context)
+
+def cart(request):
+    return render(request, 'main/cart.html')
+
+def confirmation(request):
+    return render(request, 'main/confirmation.html')
