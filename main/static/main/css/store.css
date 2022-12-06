@@ -1,0 +1,247 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 1158px;
+}
+
+.u-section-1 .u-image-1 {
+  width: 570px;
+  height: 136px;
+  margin: -2px auto 0;
+}
+
+.u-section-1 .u-product-1 {
+  min-height: 834px;
+  margin-top: 27px;
+  margin-bottom: 60px;
+  height: auto;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 0 30px;
+}
+
+.u-section-1 .u-gallery-1 {
+  width: 523px;
+  height: 496px;
+  margin: 32px auto 0 0;
+}
+
+.u-section-1 .u-over-slide-1 {
+  min-height: 100px;
+  padding: 10px;
+}
+
+.u-section-1 .u-over-slide-2 {
+  min-height: 100px;
+  padding: 10px;
+}
+
+.u-section-1 .u-carousel-thumbnails-1 {
+  padding-bottom: 0;
+  padding-top: 20px;
+}
+
+.u-section-1 .u-carousel-thumbnail-1 {
+  width: 100px;
+  height: 100px;
+}
+
+.u-section-1 .u-carousel-thumbnail-2 {
+  width: 100px;
+  height: 100px;
+}
+
+.u-section-1 .u-carousel-control-1 {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background-image: none;
+  top: 163px;
+  right: auto;
+}
+
+.u-section-1 .u-carousel-control-2 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: auto;
+  background-image: none;
+  top: 163px;
+  right: 0;
+}
+
+.u-section-1 .u-text-1 {
+  font-weight: 700;
+  font-size: 1.875rem;
+  margin: -487px 155px 0 auto;
+}
+
+.u-section-1 .u-text-2 {
+  font-size: 1.875rem;
+  margin: 27px 397px 0 auto;
+}
+
+.u-section-1 .u-product-variations-1 {
+  width: 336px;
+  margin: 41px 180px 0 auto;
+}
+
+.u-section-1 .u-btn-1 {
+  border-style: none;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 30px 250px 0 auto;
+}
+
+.u-section-1 .u-text-3 {
+  margin: 32px 95px 0 auto;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-product-1 {
+    margin-top: 28px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-top: -479px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-top: 54px;
+    margin-right: 323px;
+  }
+
+  .u-section-1 .u-product-variations-1 {
+    margin-left: 460px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-top: -327px;
+    margin-right: 50px;
+    margin-left: 460px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-top: 386px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-text-1 {
+    margin-top: -453px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-top: 47px;
+    margin-right: 242px;
+  }
+
+  .u-section-1 .u-product-variations-1 {
+    margin-top: 15px;
+    margin-left: 345px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-top: -326px;
+    margin-right: 0;
+    margin-left: 345px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-top: 385px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1151px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 540px;
+    height: 129px;
+    margin-top: 0;
+  }
+
+  .u-section-1 .u-product-1 {
+    margin-top: 33px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-gallery-1 {
+    width: 520px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-top: -428px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 191px;
+  }
+
+  .u-section-1 .u-product-variations-1 {
+    margin-top: -11px;
+    margin-left: 272px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-top: -325px;
+    margin-left: 272px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-top: 384px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1103px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 340px;
+    height: 81px;
+    margin-top: 64px;
+  }
+
+  .u-section-1 .u-product-1 {
+    margin-top: -48px;
+    margin-bottom: 41px;
+  }
+
+  .u-section-1 .u-gallery-1 {
+    width: 320px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-top: -351px;
+    margin-right: 95px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 118px;
+  }
+
+  .u-section-1 .u-product-variations-1 {
+    width: 320px;
+    margin-top: -87px;
+    margin-right: 0;
+    margin-left: 167px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-top: -362px;
+    margin-left: 167px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-top: 421px;
+  }
+}

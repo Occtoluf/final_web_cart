@@ -1,33 +1,62 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.decorators.http import require_POST
-from main.models import Product_s
-from .cart import Cart
-from .forms import CartAddProductForm
+from django.shortcuts import render, redirect
+from django.views.generic import View, CreateView
+from cart.models import OrderLine, Order
+from cart.services.cart import get_or_create_cart, add_to_cart, count_total, write_off_postions
+from cart.services.notification import send_notification
+from cart.forms import ContactInformationForm
 
 
-@require_POST
-def cart_add(request, product_id):
-    cart = Cart(request)
-    product = get_object_or_404(Product_s, id = product_id)
-    form = CartAddProductForm(request.POST)
-    if form.is_valid():
-        cd = form.cleaned_data
-        cart.add(product=product,
-                 quantity=cd['quantity'],
-                 update_quantity=cd['update'])
-    return redirect('cart:cart_detail')
+class BuyView(View):
+    def post(self, request):
+        """ Добавление товаров к корзину """
+        cart = get_or_create_cart()
+        add_to_cart(cart, request)
+        return redirect('cart:detail')
 
 
-def cart_remove(request, product_id):
-    cart = Cart(request)
-    product = get_object_or_404(Product_s, id=product_id)
-    cart.remove(product)
-    return redirect('cart:cart_detail')
+class CartView(View):
+    def get(self, request):
+        """ Просмотр корзины """
+        cart = get_or_create_cart()
+        order_lines = OrderLine.objects.filter(order=cart).prefetch_related('position')
+        return render(request, 'cart/detail.html', {
+            'order_lines': order_lines,
+            'total': count_total(order_lines)
+        })
 
 
-def cart_detail(request):
-    cart = Cart(request)
-    for item in cart:
-        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
-                                                                   'update': True})
-    return render(request, 'cart/detail.html', {'cart': cart})
+class RemoveCart(View):
+    def get(self, request):
+        """ Удаление товаров в корзине """
+        cart = get_or_create_cart()
+        cart.delete()
+
+        return redirect('cart:detail')
+
+
+class ConfirmCreateView(CreateView):
+    template_name = 'cart/confirmation.html'
+    form_class = ContactInformationForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cart = get_or_create_cart()
+        order_lines = OrderLine.objects.filter(order=cart).prefetch_related('position')
+        context['total'] = count_total(order_lines)
+        return context
+
+    def form_valid(self, form):
+        contact_information = form.save(commit=False)
+        pay_method = form.cleaned_data['pay_method']
+        contact_information.save()
+        cart = get_or_create_cart()
+        Order.objects.filter(id=cart.id).update(
+            contact_information=contact_information,
+            status='in_delivery',
+            type_payment=pay_method
+        )
+        write_off_postions(cart)
+
+        order_lines = OrderLine.objects.filter(order=cart).prefetch_related('position')
+        send_notification(order_lines, count_total(order_lines), contact_information, pay_method)
+        return redirect('home')

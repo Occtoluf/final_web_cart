@@ -1,7 +1,17 @@
 from django.contrib import admin
 
-from .models import Brand_s
-from .models import Product_s
+from main.models import Brand_s, Product_s, Position, Size
+
+
+@admin.register(Position)
+class PositionAdmin(admin.ModelAdmin):
+    list_display = ('size', 'product', 'quantity')
+
+
+@admin.register(Size)
+class SizeAdmin(admin.ModelAdmin):
+    list_display = ('name', )
+
 
 class Brand_sAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'description', 'image', 'slug')
@@ -10,13 +20,8 @@ class Brand_sAdmin(admin.ModelAdmin):
     prepopulated_fields ={"slug": ("name",)}
 
 
-
-
-
-
-
 class Product_sAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'description', 'image', 'slug', 'quantity' )
+    list_display = ('id', 'name', 'description', 'image', 'slug')
     list_display_links = ('id', 'name')
     search_fields = ('name','description')
     prepopulated_fields ={"slug": ("name",)}

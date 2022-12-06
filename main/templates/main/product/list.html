@@ -1,0 +1,37 @@
+{% extends "main/layout/base.html" %}
+
+{% block title %}
+    <title>{{ article.name }}</title>
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="../../../static/main/css/YUMMS.css" media="screen">
+{% endblock %}
+
+{% block content %}
+    <section class="u-align-center u-clearfix u-section-1" id="sec-5aec">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <img class="u-image u-image-contain u-image-default u-image-1" src="{{ br.image2 }}" alt="" data-image-width="6168" data-image-height="1477"><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
+            <div class="u-expanded-width u-products u-products-1">
+                <div class="u-repeater u-repeater-1"><!--product_item-->
+                    {% for tab in items %}
+                        <div class="u-align-center u-container-style u-products-item u-repeater-item" data-href="{{ tab.get_absolute_url }}" title="item" rel="nofollow">
+                            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_image-->
+                                <img class="u-expanded-width u-hover-feature u-image u-product-control u-image-3" src="{{ tab.image }}" data-image-width="458" data-image-height="458"><!--/product_image-->
+                                <div class="u-align-center u-container-style u-group u-white u-group-2">
+                                    <div class="u-container-layout u-container-layout-4">
+                                        <h4 class="u-text u-text-3">{{ tab.name }}</h4>
+                                        <p class="u-text u-text-4"> {{ tab.price }}&nbsp;₽</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--/product_item--><!--product_item-->
+                    {% endfor %}
+
+                </div>
+            </div><!--/products--><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
+        </div>
+
+
+    </section>
+{% endblock %}``

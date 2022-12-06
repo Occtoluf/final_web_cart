@@ -1,0 +1,44 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Position</th>
+        <th scope="col">Size</th>
+        <th scope="col">Number of products</th>
+        <th scope="col">Product price</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for line in order_lines  %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}
+            </th>
+            <td >{{ line.position.product.name}}</td>
+            <td >{{ line.position.size.name}}</td>
+
+            <td >{{ line.number_of_products}}</td>
+
+            <td >{{ line.product_price}}</td>
+
+        </tr>
+
+    {% endfor %}
+
+
+
+    </tbody>
+</table>
+<div class="col-2"><h3>Итого: {{ total }}</h3></div>
+<br>
+<h2>Контактная информация</h2>
+<h3>Фамилия: {{ contact_information.surname }}</h3>
+<h3>Имя: {{ contact_information.name }}</h3>
+<h3>Отчество: {{ contact_information.patronymic }}</h3>
+<h3>Страна: {{ contact_information.country }}</h3>
+<h3>Адрес: {{ contact_information.address }}</h3>
+<h3>Номер телефона: {{ contact_information.phone }}</h3>
+<h3>Email: {{ contact_information.email }}</h3>
+<h3>Дополнительная информация: {{ contact_information.additional }}</h3>
+<h3>Способ оплаты: {{ pay_method }}</h3>
+
+

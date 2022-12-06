@@ -1,185 +1,58 @@
-<!DOCTYPE html>
-<html style="font-size: 16px;" lang="ru"><head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Product 1 Title, Product 2 Title, Product 3 Title">
-    <meta name="description" content="">
+{% extends "main/layout/base.html" %}
+
+{% block title %}
     <title>Корзина</title>
-    <link rel="stylesheet" href="../../static/main/css/nicepage.css" media="screen">
-<link rel="stylesheet" href="../../static/main/css/YUMMS.css" media="screen">
-    <script class="u-script" type="text/javascript" src="../../static/main//js/jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="../../static/main/js/nicepage.js" defer=""></script>
-    <meta name="generator" content="Nicepage 4.21.12, nicepage.com">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    
-    
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "images/default-logo.png"
-}</script>
-    <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Главная">
-    <meta property="og:type" content="website">
-  </head>
-    
-    <!-- начало заголовка -->
-    
-    
-    <body class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-header u-valign-middle u-header" id="sec-860b"><span class="u-file-icon u-hover-feature u-icon u-text-black u-icon-1"></span><div class="u-container-style u-group u-white u-group-1" rel="nofollow" data-href="/" title="STREET">
-        <div class="u-container-layout u-container-layout-1">
-          <p class="u-hover-feature u-text u-text-default u-text-1">STREET</p>
-          <img class="u-image u-image-default u-image-1" src="../../static/main/img/image0.jpg" alt="" data-image-width="551" data-image-height="500">
-        </div>
-      </div><div class="u-container-style u-group u-white u-group-2" data-href= "{% url 'about' %}" title="about">
-        <div class="u-container-layout">
-          <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
-            <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700;">
-              <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-                <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
-                <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-</g></svg>
-              </a>
-            </div>
-            <div class="u-custom-menu u-nav-container">
-              <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-black u-text-body-color u-text-hover-grey-40" href="{% url 'about' %}" style="padding: 10px;">О нас</a>
-</li></ul>
-            </div>
-            <div class="u-custom-menu u-nav-container-collapse">
-              <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-                <div class="u-inner-container-layout u-sidenav-overflow">
-                  <div class="u-menu-close"></div>
-                  <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}">О нас</a>
-</li></ul>
-                </div>
-              </div>
-              <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-            </div>
-          </nav>
-        </div>
-      </div></header>
-      
-      
-      <!-- конец заголовка -->
-      
-      
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="../../static/main/css/YUMMS.css" media="screen">
+
+     {% load static %}
+    <link href="{% static 'main/css/bootstrap.min.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
     <section class="u-clearfix u-section-1" id="sec-d0aa">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-cart u-expanded-width u-cart-1">
-          <div class="u-cart-products-table u-table u-table-responsive">
-            <table class="u-table-entity">
-              <colgroup>
-                <col width="65%">
-                <col width="15%">
-                <col width="15%">
-                <col width="15%">
-              </colgroup>
-              <thead class="u-table-header">
-                {% for item in cart %}
-                {% with product=item.product %}
+        <div class="u-clearfix u-sheet u-sheet-1">
+        {% if order_lines|length %}
+            <table class="table">
+                <thead>
                 <tr>
-                  <td class="u-border-1 u-border-grey-dark-1 u-table-cell"><span class="u-cart-remove-item u-icon u-icon-3"><svg class="u-svg-content" viewBox="0 0 52 52" x="0px" y="0px" style="width: 1em; height: 1em;"><g><path d="M26,0C11.664,0,0,11.663,0,26s11.664,26,26,26s26-11.663,26-26S40.336,0,26,0z M26,50C12.767,50,2,39.233,2,26
-		S12.767,2,26,2s24,10.767,24,24S39.233,50,26,50z"></path><path d="M35.707,16.293c-0.391-0.391-1.023-0.391-1.414,0L26,24.586l-8.293-8.293c-0.391-0.391-1.023-0.391-1.414,0
-		s-0.391,1.023,0,1.414L24.586,26l-8.293,8.293c-0.391,0.391-0.391,1.023,0,1.414C16.488,35.902,16.744,36,17,36
-		s0.512-0.098,0.707-0.293L26,27.414l8.293,8.293C34.488,35.902,34.744,36,35,36s0.512-0.098,0.707-0.293
-		c0.391-0.391,0.391-1.023,0-1.414L27.414,26l8.293-8.293C36.098,17.316,36.098,16.684,35.707,16.293z"></path>
-</g></svg><img></span>
-                    <img class="u-cart-product-image u-image u-image-default u-product-control" src="{{product.image}}">
-                    <h2 class="u-cart-product-title u-product-control u-text u-text-3">
-                      <a class="u-product-title-link" href="{{ product.get_absolute_url }}">{{product.name}}</a>
-                    </h2>
-                  </td>
-
-                  <td>
-                    <form action="{% url 'cart:cart_add' product.id %}" method = "post">
-                      {{item.update_quantity_form.quantity}}
-                      {{item.update_quantity_form.update}}
-                      <input type = "submit" value="Обновить">
-                      {% csrf_token %}
-                    </form>
-                  </td>
-
-                  <td>
-                    <a href = "{% url 'cart:cart_remove' product.id %}">Удалить</a>
-                  </td>
-
-                  <td>
-                    {{item.quantity}}
-                  </td>
-
-
-                  <td class="u-border-1 u-border-grey-dark-1 u-table-cell">
-                    <div class="u-cart-product-price u-product-control u-product-price">
-                      <div class="u-price-wrapper">
-                        <div class="u-hide-price u-old-price"></div>
-                        <div class="u-price">{{product.price}}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="u-border-1 u-border-grey-dark-1 u-table-cell">
-                    <div class="u-cart-product-quantity u-product-control u-product-quantity u-product-quantity-3">
-                      <div class="u-hidden u-quantity-label"> Quantity </div>
-                      <div class="u-border-1 u-border-grey-25 u-quantity-input">
-                        <a class="disabled minus u-button-style u-hidden u-quantity-button">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m 4 8 h 8" fill="none" stroke="currentColor" stroke-width="1" fill-rule="evenodd"></path></svg>
-                        </a>
-                        <input class="u-border-grey-30 u-input" type="text" value="1" pattern="[0-9]+">
-                        <a class="plus u-button-style u-hidden u-quantity-button">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m 4 8 h 8 M 8 4 v 8" fill="none" stroke="currentColor" stroke-width="1" fill-rule="evenodd"></path></svg>
-                        </a>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="u-border-1 u-border-grey-dark-1 u-table-cell">
-                    <div class="u-cart-product-subtotal u-product-control u-product-price">
-                      <div class="u-price-wrapper">
-                        <div class="u-hide-price u-old-price"></div>
-                        <div class="u-price" style="font-weight: 700;">{{ item.total_price }}</div>
-                      </div>
-                    </div>
-                  </td>
+                    <th scope="col">#</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Number of products</th>
+                    <th scope="col">Product price</th>
                 </tr>
-                {% endwith %}
+                </thead>
+                <tbody>
+                {% for line in order_lines  %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}
+                        </th>
+                        <td >{{ line.position.product.name}}</td>
+                        <td >{{ line.position.size.name}}</td>
+
+                        <td >{{ line.number_of_products}}</td>
+
+                        <td >{{ line.product_price}}</td>
+
+                    </tr>
+
                 {% endfor %}
-  
-                
-              </tbody>
+
+
+
+                </tbody>
             </table>
-          </div>
-          <div class="u-cart-button-container">
-            
-      
-          </div>
-            <div class="u-cart-block u-cart-totals-block u-indent-30">
-              <div class="u-cart-block-container u-clearfix">
-                <h5 class="u-cart-block-header u-text"></h5>
-                <div class="u-align-right u-cart-block-content u-text">
-                  <div class="u-cart-totals-table u-table u-table-responsive">
-                    <table class="u-table-entity">
-                      <colgroup>
-                        <col width="80%">
-                        <col width="70%">
-                      </colgroup>
-                      <tbody class="u-align-right u-table-body">
-                        <tr>
-                          <td class="u-align-left u-border-1 u-border-grey-dark-1 u-first-column u-table-cell u-table-cell-19">Сумма товаров</td>
-                          <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-20">{{ cart.get_total_price }} ₽</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <a href="{% url 'confirmation' %}" class="u-btn u-button-style u-cart-checkout-btn u-btn-4">Оплатить</a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="col-2"><h6>Total: {{ total }}</h6></div>
+        <a class="btn btn-secondary" href="{% url 'cart:remove' %}">Clear cart</a>
+        <a class="btn btn-success" href="{% url 'cart:confirm' %}">Confirm</a>
+        {% else %}
+        <p>Товаров пока нет</p>
+        {% endif %}
+
         </div>
+
     </section>
-    
-    
-    
-   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-890c"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1"></p>
-      </div></footer>
-</body></html>
+{% endblock %}

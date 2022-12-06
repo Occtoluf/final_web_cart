@@ -1,53 +1,48 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Brand_s
-from .models import Product_s
-from cart.forms import CartAddProductForm
+from main.models import Brand_s, Product_s, Size, Position
+from django.views.generic import View, TemplateView
 
 
-def index(request):
+class IndexView(View):
+    """ Главная страница """
 
-    news = Brand_s.objects.all()
-    return render(request, 'main/index.html', {'news': news})
-
-def about(request):
-    
-    return render(request, 'main/about.html')
-
-def show_brand(request, brand_slug):
-    
-
-    '''items = Product_s.objects.filter(category_id = brand_id)
-    brands = Brand_s.objects.all()
-    br = brands[brand_slug-1]'''
-
-   
-    #items = Product_s.objects.all()
-    br = get_object_or_404(Brand_s, slug = brand_slug)
-    items = Product_s.objects.filter(category = br.id)
-
-    context = {
-        'items': items,
-        'br' : br,
-    }
-    return render(request, 'main/test.html', context=context)
-
-def show_product(request, id, prod_slug):
-
-    item = get_object_or_404(Product_s, id = id, slug = prod_slug)
-    cart_product_form = CartAddProductForm()
-    context = {
-        'cart_product_form': cart_product_form,
-        'it': item,
-        'br_id': item.category,
-    }
-    return render(request, 'main/test-product.html', context=context)
+    def get(self, request):
+        return render(request, 'main/index.html', {'brands': Brand_s.objects.all()})
 
 
-def confirmation(request):
-    return render(request, 'main/confirmation.html')
+class AboutTemplateView(TemplateView):
+    """ О нас """
 
-'''
-def cart(request):
-    return render(request, 'main/cart.html')
-'''
+    template_name = 'main/about.html'
+
+
+class BrandView(View):
+    """ Просмотр товаров бренда """
+
+    def get(self, request, brand_slug):
+        br = get_object_or_404(Brand_s, slug=brand_slug)
+        items = Product_s.objects.filter(category=br.id)
+        return render(request, 'main/product/list.html', {'items': items, 'br': br})
+
+
+class ProductDetailView(View):
+    """ Детальная информация о продукте"""
+
+    def get(self, request, id, prod_slug):
+        item = get_object_or_404(Product_s, id=id, slug=prod_slug)
+        positions = Position.objects.filter(product=item)
+        return render(request, 'main/product/detail.html', {
+            'it': item,
+            'br_id': item.category,
+            'positions': positions
+
+        })
+
+
+class ConfirmationTemplateView(TemplateView):
+    """ Подтверждение заказа """
+
+    template_name = 'main/confirmation.html'
+
+
 
